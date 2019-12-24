@@ -6,8 +6,14 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class RedactTests {
+    class FullRedact(s: String): Redact(s) {
+        override fun toString(): String {
+            return Type.FULL.apply(pii);
+        }
+    }
+
     val secret = "secret"
-    val redact = Redact(secret)
+    val redact = FullRedact(secret)
 
     @Test fun value() {
         assertEquals(secret, redact.pii)
