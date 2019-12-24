@@ -11,6 +11,15 @@ public abstract class Redact {
    }
 
    @Override
+   public String toString() {
+      return "<redacted " + redact().apply(pii) + '>';
+   }
+
+   protected Function<String, String> redact() {
+      return Type.FULL;
+   }
+
+   @Override
    public boolean equals(Object o) {
       if (this == o) return true;
       if (o == null || getClass() != o.getClass()) return false;
@@ -21,15 +30,6 @@ public abstract class Redact {
    @Override
    public int hashCode() {
       return Objects.hash(pii);
-   }
-
-   @Override
-   public String toString() {
-      return "<redacted " + redact().apply(pii) + '>';
-   }
-
-   protected Function<String, String> redact() {
-      return Type.FULL;
    }
 
 //   public final String getPii() {
@@ -55,7 +55,7 @@ public abstract class Redact {
       },
       LAST_4 {
          public String apply(String s) {
-            if (s.length() > 4) {
+            if (s != null && s.length() > 4) {
                return "*" + s.substring(s.length() - 4);
             } else {
                return s;

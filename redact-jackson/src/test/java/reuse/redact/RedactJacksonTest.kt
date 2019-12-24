@@ -10,7 +10,7 @@ import kotlin.test.assertTrue
 
 data class Record(val ssn: SSN? = null)
 
-class RedactTests {
+class RedactJacksonTest {
     private val secret = "secret"
     val redact = SSN(secret)
     val record = Record(redact)
