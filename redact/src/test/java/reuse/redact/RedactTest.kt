@@ -5,7 +5,7 @@ import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class RedactTests {
+class RedactTest {
     class FullRedact(s: String): Redact(s) {
         override fun toString(): String {
             return Type.FULL.apply(pii);
