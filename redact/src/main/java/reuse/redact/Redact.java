@@ -1,23 +1,41 @@
 package reuse.redact;
 
+import java.util.Objects;
 import java.util.function.Function;
 
 public abstract class Redact {
-   private final String pii;
-
-   public abstract String toString();
-//   {
-//      return "<redacted " + Integer.toHexString(this.pii.hashCode()) + '>';
-//   }
-
-   public final String getPii() {
-      return this.pii;
-   }
+   protected final String pii;
 
    public Redact(String pii) {
-      super();
       this.pii = pii;
    }
+
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (o == null || getClass() != o.getClass()) return false;
+      Redact redact = (Redact) o;
+      return pii.equals(redact.pii);
+   }
+
+   @Override
+   public int hashCode() {
+      return Objects.hash(pii);
+   }
+
+   @Override
+   public String toString() {
+      return "<redacted " + redact().apply(pii) + '>';
+   }
+
+   protected Function<String, String> redact() {
+      return Type.FULL;
+   }
+
+//   public final String getPii() {
+//      return this.pii;
+//   }
+
 
    public enum Type implements Function<String, String> {
       FULL {

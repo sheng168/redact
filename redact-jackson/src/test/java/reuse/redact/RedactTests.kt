@@ -1,24 +1,18 @@
-package maven.kotlin.beta
+package reuse.redact
 
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
-import reuse.redact.RedactJson
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
-class Password(pii: String): RedactJson(pii) {
-    override fun toString(): String {
-        return Type.HASH.apply(pii)
-    }
-}
 
-data class Record(val ssn: Password? = null)
+data class Record(val ssn: SSN? = null)
 
 class RedactTests {
     private val secret = "secret"
-    val redact = Password(secret)
+    val redact = SSN(secret)
     val record = Record(redact)
 
     @Test
