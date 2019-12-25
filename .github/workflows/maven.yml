@@ -20,4 +20,4 @@ jobs:
     - name: Build with Maven
       run: |
         mvn -B package --file pom.xml
-        mvn deploy -Dregistry=https://maven.pkg.github.com/sheng168 -Dtoken=${{ secrets.GH_TOKEN }}
+        mvn deploy -Dregistry=https://maven.pkg.github.com/sheng168 -Dtoken=${{ secrets.GITHUB_TOKEN }}
