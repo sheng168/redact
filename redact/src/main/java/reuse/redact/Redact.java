@@ -3,7 +3,8 @@ package reuse.redact;
 import java.util.Objects;
 import java.util.function.Function;
 
-public abstract class Redact {
+
+public class Redact {
    protected final String pii;
 
    public Redact(String pii) {
@@ -16,7 +17,7 @@ public abstract class Redact {
    }
 
    protected Function<String, String> redact() {
-      return Type.FULL;
+      return Strategy.FULL;
    }
 
    @Override
@@ -32,30 +33,4 @@ public abstract class Redact {
       return Objects.hash(pii);
    }
 
-   public enum Type implements Function<String, String> {
-      FULL {
-         public String apply(String s) {
-            return "***";
-         }
-      },
-      NOOP {
-         public String apply(String s) {
-            return s;
-         }
-      },
-      HASH {
-         public String apply(String s) {
-            return Integer.toHexString(s.hashCode());
-         }
-      },
-      LAST_4 {
-         public String apply(String s) {
-            if (s != null && s.length() > 4) {
-               return "*" + s.substring(s.length() - 4);
-            } else {
-               return s;
-            }
-         }
-      };
-   }
 }

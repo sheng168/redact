@@ -1,6 +1,5 @@
 package reuse.redact;
 
-
 import com.fasterxml.jackson.annotation.JsonValue;
 
 public abstract class RedactJackson extends Redact {
@@ -9,13 +8,7 @@ public abstract class RedactJackson extends Redact {
     }
 
     @JsonValue
-    String toJson() {
+    String toJson() { // actually use by Jackson
         return pii;
     }
-
-   /*
-   RedactJson fromString(String s) {
-      return new RedactJson(s);
-   }
-    */
 }
