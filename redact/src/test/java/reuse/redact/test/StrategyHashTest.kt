@@ -11,6 +11,7 @@ class StrategyHashTest {
     fun `should not be NOOP`() {
         assertNotEquals("123", s.apply("123"))
     }
+
     @Test
     fun `different input should produce different output(mostly)`() {
         assertNotEquals(s.apply("1"), s.apply("2"))
