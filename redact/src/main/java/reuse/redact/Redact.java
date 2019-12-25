@@ -32,11 +32,6 @@ public abstract class Redact {
       return Objects.hash(pii);
    }
 
-//   public final String getPii() {
-//      return this.pii;
-//   }
-
-
    public enum Type implements Function<String, String> {
       FULL {
          public String apply(String s) {
