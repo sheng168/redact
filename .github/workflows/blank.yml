@@ -9,7 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script ${{secrets.GH_TOKEN}}
+    - name: Run a one-line script ${{secrets.GH_TOKEN}} ${{ secrets.GITHUB_TOKEN }}
       run: echo Hello, world!
     - name: Run a multi-line script
       run: |
