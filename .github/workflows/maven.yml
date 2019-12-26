@@ -5,9 +5,10 @@ on: [push]
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
+        os: [ubuntu-latest, ubuntu-16.04, macos-latest, windows-latest]
         # test against latest update of each major Java version, as well as specific updates of LTS versions:
         java: [ 1.8, 11.0.x, 11.0.3, 13 ]
 
