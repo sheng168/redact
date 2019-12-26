@@ -7,10 +7,11 @@
 
     <groupId>reuse</groupId>
     <artifactId>redact-parent</artifactId>
-    <version>0.1.0-SNAPSHOT</version>
+    <version>0.1.0</version>
 
     <modules>
-        <module>redact</module>
+        <module>redact-java</module>
+        <module>redact-kotlin</module>
         <module>redact-jackson</module>
     </modules>
 

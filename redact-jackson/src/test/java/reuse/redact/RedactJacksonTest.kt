@@ -17,7 +17,7 @@ class RedactJacksonTest {
 
     @Test
     fun value() {
-        assertEquals(secret, redact.pii)
+        assertEquals(secret, redact.toJson())
     }
 
     @Test
