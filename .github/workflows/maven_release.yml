@@ -1,10 +1,15 @@
-name: Pull request labeler
+name: Tag release
 on:
-  - pull_request
+  push:
+    branches:
+      - master
+
 jobs:
-  triage:
+  release-on-push:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/labeler@v2
+      - uses: rymndhng/release-on-push-action@master
         with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          strategy: minor
