@@ -2,18 +2,28 @@ package reuse.redact
 
 import java.util.function.Function
 
+/**
+ * Helps prevent PII(Personally identifiable information) from being printed or logged by overriding toString().
+ */
 open class Redact(pii: String) {
     @JvmField
-    protected val pii: String
+    protected val pii: String = pii
 
-    override fun toString(): String {
-        return "<redacted " + redact().apply(pii) + '>'
+    /**
+     * Final to prevent subclasses from accidentally undoing our work
+     */
+    final override fun toString(): String {
+        return "<redacted ${strategy().apply(pii)}>"
     }
 
-    protected open fun redact(): Function<String, String> {
+    /**
+     * Extension point to allow subclasses to redaction strategy. Default to Strategy.FULL
+     */
+    protected open fun strategy(): Function<String, String> {
         return Strategy.FULL
     }
 
+    // equals and hashCode implementation allow wrapper to be use transparently in place of String
     override fun equals(o: Any?): Boolean {
         if (this === o) return true
         if (o == null || javaClass != o.javaClass) return false
@@ -25,8 +35,4 @@ open class Redact(pii: String) {
         return pii.hashCode()
     }
 
-    init {
-        if (pii == null) throw NullPointerException("input must not be null")
-        this.pii = pii
-    }
 }

@@ -8,7 +8,7 @@ public class CreditCardNumber extends RedactJackson {
     }
 
     @Override
-    protected Function<String, String> redact() {
+    protected Function<String, String> strategy() {
         return Strategy.LAST_4;
     }
 }
