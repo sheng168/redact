@@ -13,7 +13,7 @@
     <dependencies>
         <dependency>
             <groupId>reuse</groupId>
-            <artifactId>redact</artifactId>
+            <artifactId>redact-kotlin</artifactId>
             <version>0.1.0-SNAPSHOT</version>
         </dependency>
 
