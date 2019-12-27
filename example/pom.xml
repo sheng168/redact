@@ -5,9 +5,10 @@
         <artifactId>redact-parent</artifactId>
         <version>0.1.2</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>redact-jackson</artifactId>
+    <artifactId>redact-example</artifactId>
 
     <description>
         https://jkutner.github.io/2017/12/15/update-dependencies-early-and-often.html
@@ -17,28 +18,22 @@
     </description>
 
     <properties>
-        <jackson.version>2.10.1</jackson.version>
         <redact.version>0.1.2</redact.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>reuse</groupId>
-            <artifactId>redact-kotlin</artifactId>
+            <artifactId>redact-jackson</artifactId>
             <version>${redact.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-annotations</artifactId>
-            <version>${jackson.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.module</groupId>
-            <artifactId>jackson-module-kotlin</artifactId>
-            <version>${jackson.version}</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 
+    <repositories>
+        <repository>
+            <id>github</id>
+            <name>GitHub OWNER Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/sheng168</url>
+        </repository>
+    </repositories>
 </project>
