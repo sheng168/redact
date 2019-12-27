@@ -6,7 +6,7 @@
     <parent>
         <groupId>reuse</groupId>
         <artifactId>redact-parent</artifactId>
-        <version>0.1.2-SNAPSHOT</version>
+        <version>0.1.2</version>
     </parent>
 
     <artifactId>redact-java</artifactId>
