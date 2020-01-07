@@ -115,11 +115,100 @@
         </plugins>
     </build>
 
+    <name>redact</name>
+    <description>
+        publishing to Maven Central
+    </description>
+    <url>http://github.com/sheng168/redact</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+    <profiles>
+        <profile>
+            <id>deploy</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-source-plugin</artifactId>
+                        <version>2.2.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-sources</id>
+                                <goals>
+                                    <goal>jar-no-fork</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-javadoc-plugin</artifactId>
+                        <version>2.9.1</version>
+                        <executions>
+                            <execution>
+                                <id>attach-javadocs</id>
+                                <goals>
+                                    <goal>jar</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.6</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                                <configuration>
+                                   <!-- Prevent `gpg` from using pinentry programs -->
+                                   <gpgArguments>
+                                       <arg>--pinentry-mode</arg>
+                                       <arg>loopback</arg>
+                                   </gpgArguments>
+                               </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
     <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
         <repository>
-            <id>github</id>
-            <name>GitHub OWNER Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/sheng168/redact</url>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
         </repository>
     </distributionManagement>
+
+    <scm>
+        <connection>scm:git:git://github.com/sheng168/arithmetic.git</connection>
+        <developerConnection>scm:git:ssh://github.com/sheng168/arithmetic.git</developerConnection>
+        <url>http://github.com/sheng168/arithmetic</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>Jin Yu</name>
+            <email>oss@jsy.us</email>
+            <organization>us.jsy</organization>
+            <organizationUrl>http://github.com/sheng168/</organizationUrl>
+        </developer>
+    </developers>
+
 </project>
