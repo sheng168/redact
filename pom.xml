@@ -197,9 +197,9 @@
     </distributionManagement>
 
     <scm>
-        <connection>scm:git:git://github.com/sheng168/arithmetic.git</connection>
-        <developerConnection>scm:git:ssh://github.com/sheng168/arithmetic.git</developerConnection>
-        <url>http://github.com/sheng168/arithmetic</url>
+        <connection>scm:git:git://github.com/sheng168/redact.git</connection>
+        <developerConnection>scm:git:ssh://github.com/sheng168/redact.git</developerConnection>
+        <url>http://github.com/sheng168/redact</url>
     </scm>
 
     <developers>
