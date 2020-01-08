@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>reuse</groupId>
+        <groupId>us.jsy</groupId>
         <artifactId>redact-parent</artifactId>
         <version>0.1.2</version>
     </parent>
