@@ -18,14 +18,13 @@
 
     <properties>
         <jackson.version>2.10.1</jackson.version>
-        <redact.version>0.1.2</redact.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>us.jsy</groupId>
             <artifactId>redact-java</artifactId>
-            <version>${redact.version}</version>
+            <version>${project.version}</version>
         </dependency>
 
         <dependency>
