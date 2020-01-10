@@ -15,10 +15,10 @@ public class Redact {
 
    @Override
    public String toString() {
-      return "<redacted " + redact().apply(pii) + '>';
+      return "<redacted " + strategy().apply(pii) + '>';
    }
 
-   protected Function<String, String> redact() {
+   protected Function<String, String> strategy() {
       return Strategy.FULL;
    }
 
