@@ -18,6 +18,7 @@
         <module>redact-kotlin</module>
         <module>redact-jackson</module>
         <module>redact-example</module>
+        <module>redact-dropwizard-example</module>
     </modules>
 
     <properties>
