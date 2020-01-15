@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>redact-parent</artifactId>
-    <version>0.1.4-SNAPSHOT</version>
+    <version>1.0.0-SNAPSHOT</version>
 
     <modules>
         <module>redact-java</module>
