@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>us.jsy</groupId>
+        <artifactId>redact-parent</artifactId>
+        <version>1.0.0</version>
+    </parent>
+
+    <artifactId>redact-dropwizard-kotlin-example</artifactId>
+
+    <properties>
+        <dropwizard.version>2.0.0</dropwizard.version>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jetbrains.kotlin</groupId>
+            <artifactId>kotlin-stdlib-jdk8</artifactId>
+            <version>${kotlin.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-core</artifactId>
+            <version>${dropwizard.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>us.jsy</groupId>
+            <artifactId>redact-jackson</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
+</project>
